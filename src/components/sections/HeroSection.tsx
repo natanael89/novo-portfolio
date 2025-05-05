@@ -37,9 +37,18 @@ export const HeroSection = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-fade-in" style={{ animationDelay: '1s' }}>
-        <span className="text-sm text-gray-400 mb-2">Scroll</span>
-        <div className="h-12 w-0.5 bg-gradient-to-b from-accent to-transparent animate-pulse-glow" />
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center animate-fade-in hidden sm:flex"
+        style={{ animationDelay: '1s' }}
+        onClick={() => {
+          const nextSection = document.querySelector('#about'); // Substitua '#projects' pelo ID da próxima seção
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+      >
+        <span className="text-sm text-gray-400 mb-2 cursor-pointer">Scroll</span>
+        <div className="h-12 w-0.5 bg-gradient-to-b from-accent to-transparent animate-pulse-glow cursor-pointer" />
       </div>
     </section>
   );
